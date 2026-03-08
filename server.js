@@ -1,7 +1,7 @@
 const express=require("express");
 const cors=require("cors");
 const logger=require("./middleware/logger");
-const CourseRoutes=require("./routes/CourseRoutes");
+const courseRoutes=require("./routes/courses");
 
 require("dotenv").config();
 const app=express();
@@ -9,7 +9,7 @@ const app=express();
 app.use(cors());
 app.use(express.json());
 app.use(logger);    
-app.use("/",courseRoutes);
+app.use("/api",courseRoutes);
 
 const PORT=process.env.PORT||5174
 
